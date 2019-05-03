@@ -3,7 +3,7 @@
 #include "diamond_square.h"
 namespace PTG {
     
-    namespace back {
+    namespace data {
         DiamondSquare::DiamondSquare() : size(1), map(0,iVec(0)), noWrapFlag(true) {};
         DiamondSquare::DiamondSquare(const std::size_t _size, bool _noWrapFlag) :  size(_size),
             map(size,iVec(size)), noWrapFlag(_noWrapFlag) {

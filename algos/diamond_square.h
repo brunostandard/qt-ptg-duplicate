@@ -12,7 +12,7 @@
 #include <cassert>
 
 namespace PTG {
-    namespace back {
+    namespace data {
         typedef std::vector<int> iVec;
         
         class DiamondSquare{

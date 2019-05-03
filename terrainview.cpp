@@ -2,6 +2,8 @@
 #include <QVBoxLayout>
 #include <QGraphicsPixmapItem>
 #include <QRandomGenerator>
+#include <vector>
+#include "algos/diamond_square.h"
 
 namespace PTG{
 namespace view{
@@ -15,28 +17,36 @@ TerrainView::TerrainView(QWidget *parent)
     layout->addWidget(view);
     this->setLayout(layout);
     // TEST ITEMS
-    QRandomGenerator random;
-    random.seed(100);
-    for(size_t y = 0; y < 250; y++)
+    data::DiamondSquare ds(513);
+    ds();
+    std::vector<std::vector<int>> map = ds.getMap();
+
+    for(size_t y = 0; y < 513; y++)
     {
-        for(size_t x = 0; x < 250; x++)
+        for(size_t x = 0; x < 513; x++)
         {
-            size_t xSize = 8;
-            size_t ySize = 8;
+            size_t xSize = 4;
+            size_t ySize = 4;
 
             QPixmap p = QPixmap(xSize,ySize);
 
-            // Randomize
-            int r = random.bounded(10);
+            //Fill
+            int value = map[x][y];
 
-            if(r < 1)
+            if(value < 130)
                 p.fill(Qt::darkBlue);
-            else if(r < 6)
+            else if(value < 150)
                 p.fill(Qt::blue);
-            else if(r < 9)
+            else if(value < 200)
                 p.fill(Qt::darkGreen);
-            else if(r < 10)
+            else if(value < 230)
+                p.fill(Qt::darkYellow);
+            else if(value < 250)
                 p.fill(Qt::gray);
+            else if(value < 260)
+                p.fill(Qt::darkGray);
+            else
+                p.fill(Qt::white);
 
             QGraphicsPixmapItem * pi = new QGraphicsPixmapItem(p);
             scene->addItem(pi);
