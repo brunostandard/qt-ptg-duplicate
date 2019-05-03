@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/fig">
+        <file>page2.jpeg</file>
+        <file>page3.jpeg</file>
+        <file>back.png</file>
+        <file>page1.jpeg</file>
+        <file>terrain.png</file>
+    </qresource>
+    <qresource prefix="/">
+        <file>font/monogram.ttf</file>
+    </qresource>
+</RCC>

@@ -1,6 +1,6 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2019-04-22T16:05:17
+# Project created by QtCreator 2019-04-30T14:15:21
 #
 #-------------------------------------------------
 
@@ -25,16 +25,39 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
-        main.cpp \
-        widget.cpp
+    main.cpp \
+    mainwindow.cpp \
+    algos/diamond_square.cpp \
+    pages/aboutpage.cpp \
+    pages/firstpage.cpp \
+    pages/lastpage.cpp \
+    pages/page.cpp \
+    pages/secondpage.cpp
 
 HEADERS += \
-        widget.h
+    mainwindow.h \
+    algos/diamond_square.h \
+    pages/aboutpage.h \
+    pages/firstpage.h \
+    pages/lastpage.h \
+    pages/page.h \
+    pages/secondpage.h
 
-FORMS += \
-        widget.ui
+FORMS +=
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+DISTFILES += \
+    classhierarchydiagram.qmodel \
+    page1.jpeg \
+    page2.jpeg \
+    page3.jpeg \
+    back.png \
+    terrain.png \
+    font/monogram.ttf
+
+RESOURCES += \
+    pictures.qrc
