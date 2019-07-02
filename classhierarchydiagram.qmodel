@@ -112,7 +112,7 @@
                          <object>{3c816042-5e8b-44ef-b2c7-d7240c07d434}</object>
                          <name>Page</name>
                          <pos>x:375;y:210</pos>
-                         <rect>x:-60;y:-35;w:120;h:70</rect>
+                         <rect>x:-65;y:-35;w:130;h:70</rect>
                          <visual-role>0</visual-role>
                         </DObject>
                        </base-DObject>
@@ -234,7 +234,7 @@
                          <object>{4d206ed4-9981-4e01-a2ee-9ebde4f2b41c}</object>
                          <name>ConfigPage</name>
                          <pos>x:670;y:260</pos>
-                         <rect>x:-60;y:-35;w:120;h:70</rect>
+                         <rect>x:-65;y:-35;w:130;h:70</rect>
                          <visual-role>0</visual-role>
                         </DObject>
                        </base-DObject>
@@ -255,7 +255,7 @@
                          <object>{22d8905d-974e-44bd-b156-b0f04434392d}</object>
                          <name>TerainPage</name>
                          <pos>x:375;y:350</pos>
-                         <rect>x:-65;y:-40;w:130;h:80</rect>
+                         <rect>x:-65;y:-45;w:130;h:90</rect>
                          <visual-role>0</visual-role>
                         </DObject>
                        </base-DObject>
@@ -361,7 +361,7 @@
                        </base-DElement>
                        <text>Data (Back End)</text>
                        <pos>x:115;y:670</pos>
-                       <rect>x:0;y:0;w:129;h:35</rect>
+                       <rect>x:0;y:0;w:130.141;h:35</rect>
                        <visual-role>1</visual-role>
                       </DAnnotation>
                      </instance>
@@ -379,7 +379,7 @@
                          <object>{42de1bf4-916f-4879-8863-ea56bcf07e30}</object>
                          <name>TileMap&lt;T&gt;</name>
                          <pos>x:375;y:550</pos>
-                         <rect>x:-65;y:-60;w:130;h:120</rect>
+                         <rect>x:-70;y:-60;w:140;h:120</rect>
                          <visual-role>0</visual-role>
                         </DObject>
                        </base-DObject>
@@ -474,7 +474,7 @@
                          <object>{3b0affa5-ceea-409f-9783-1910f5eef26e}</object>
                          <name>HeightGenerator</name>
                          <pos>x:670;y:660</pos>
-                         <rect>x:-55;y:-35;w:110;h:70</rect>
+                         <rect>x:-60;y:-40;w:120;h:80</rect>
                          <visual-role>0</visual-role>
                         </DObject>
                        </base-DObject>
@@ -495,7 +495,7 @@
                          <object>{99d99e33-f38c-4e0f-a231-0af6cff4670b}</object>
                          <name>HeightConfigEditor</name>
                          <pos>x:670;y:360</pos>
-                         <rect>x:-55;y:-30;w:110;h:60</rect>
+                         <rect>x:-60;y:-30;w:120;h:60</rect>
                          <visual-role>0</visual-role>
                         </DObject>
                        </base-DObject>
@@ -619,7 +619,7 @@
                        <text>Algorithms are written as functions,
 and are used by generator implementations</text>
                        <pos>x:595;y:750</pos>
-                       <rect>x:0;y:0;w:168;h:68</rect>
+                       <rect>x:0;y:0;w:168;h:70</rect>
                        <auto-sized>false</auto-sized>
                        <visual-role>4</visual-role>
                       </DAnnotation>
@@ -636,7 +636,7 @@ and are used by generator implementations</text>
                        <text>An editor exists for each 
 nested generator config.</text>
                        <pos>x:525;y:400</pos>
-                       <rect>x:0;y:0;w:137;h:42</rect>
+                       <rect>x:0;y:0;w:139.563;h:44</rect>
                        <visual-role>4</visual-role>
                       </DAnnotation>
                      </instance>
@@ -651,7 +651,7 @@ nested generator config.</text>
                        </base-DElement>
                        <text>Procedural Terrain Generator: Class Hierarchy Diagram</text>
                        <pos>x:10;y:10</pos>
-                       <rect>x:0;y:0;w:406;h:35</rect>
+                       <rect>x:0;y:0;w:410;h:35</rect>
                        <visual-role>1</visual-role>
                       </DAnnotation>
                      </instance>

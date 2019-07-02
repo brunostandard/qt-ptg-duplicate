@@ -3,10 +3,14 @@
 #include "diamond_square.h"
 namespace PTG {
     
-    namespace back {
+    namespace data {
         DiamondSquare::DiamondSquare() : size(1), map(0,iVec(0)), noWrapFlag(true) {};
-        DiamondSquare::DiamondSquare(const std::size_t _size, bool _noWrapFlag) :  size(_size),
-            map(size,iVec(size)), noWrapFlag(_noWrapFlag) {
+        DiamondSquare::DiamondSquare(const std::size_t _size, bool _noWrapFlag) :  
+        size(_size),
+        map(size,iVec(size)), 
+        sum_of_values(0),
+        noWrapFlag(_noWrapFlag)
+        {
                 std::size_t edge = size-1;
                 map[0][0] = 128;
                 map[0][edge] = 128;
@@ -14,7 +18,7 @@ namespace PTG {
                 map[edge][edge] = 128;
         }
         void DiamondSquare::setMap(const std::size_t _size) {
-            size = static_cast<std::size_t>(std::pow(2,_size)+1);
+            size = _size;
             std::size_t edge = _size-1;
             map.clear();
             std::vector<iVec> temp(size,iVec(size));
@@ -32,21 +36,22 @@ namespace PTG {
             
             if (noWrapFlag) {
                 assert(size >= 5 && ((size - 1) & (size - 2)) == 0 && "valid size");
-                heightfield::diamond_square_no_wrap(
+                sum_of_values = heightfield::diamond_square_no_wrap(
                 size,
                 // random
                 [&engine, &distribution](float range) {
                     return distribution(engine) * range;
                 },
                 // variance
-                [](int level) { return 128 * std::pow(0.7f, level); },
+                [](int level) { return 128 * std::pow(0.65f, level); },
                 // at
                 [&imap](int x, int y) -> int& { return imap[y][x]; });
+                sum_of_values /= (static_cast<int>(size)^2);
             }
 
             else {
                 assert(size >= 4 && (size & (size - 1)) == 0 && "valid size");
-                heightfield::diamond_square_wrap(
+                sum_of_values = heightfield::diamond_square_wrap(
                 size,
                 // random
                 [&engine, &distribution](float range) {
@@ -56,14 +61,17 @@ namespace PTG {
                 [](int level) { return 128 * std::pow(0.25f, level); },
                 // at
                 [&imap](int x, int y) -> int& { return imap[y][x]; });
+                sum_of_values /= (static_cast<int>(size)^2);
             }
         
         }
-        
-        //std::size_t DiamondSquare::getSize() { return size; }
+        int DiamondSquare::getAverageValue() const {
+            return (sum_of_values)/(static_cast<int>(size)^2);
+        }
         
         const std::vector<iVec>& DiamondSquare::getMap() {  return map; }
 
+        
         std::ostream& operator<<(std::ostream& out, const DiamondSquare& that) {
             for (auto& row : that.map) {
                 for (auto cell : row) {

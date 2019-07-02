@@ -1,12 +1,52 @@
 <RCC>
     <qresource prefix="/fig">
-        <file>page2.jpeg</file>
-        <file>page3.jpeg</file>
-        <file>back.png</file>
-        <file>page1.jpeg</file>
         <file>terrain.png</file>
+        <file>background.png</file>
+        <file>legend_table.png</file>
+        <file>instruction_image_page2.png</file>
+        <file>instruction_image_page1.png</file>
     </qresource>
     <qresource prefix="/">
         <file>font/monogram.ttf</file>
+        <file>sounds/click_Ab.wav</file>
+        <file>sounds/click_C.wav</file>
+        <file>sounds/click_Eb.wav</file>
+        <file>sounds/click_G.wav</file>
+        <file>sounds/ambient_1.mp3</file>
+        <file>textures/mount/woodland-mount.png</file>
+        <file>textures/mount/background.png</file>
+        <file>textures/mount/tundra-mount.png</file>
+        <file>textures/mount/tropsforest-mount.png</file>
+        <file>textures/mount/troprforest-mount.png</file>
+        <file>textures/mount/tempsforest-mount.png</file>
+        <file>textures/mount/temprforest-mount.png</file>
+        <file>textures/mount/subdesert-mount.png</file>
+        <file>textures/mount/colddesert-mount.png</file>
+        <file>textures/mount/borforest-mount.png</file>
+        <file>textures/deep-ocean.png</file>
+        <file>textures/woodland.png</file>
+        <file>textures/tundra.png</file>
+        <file>textures/tropsforest.png</file>
+        <file>textures/troprforest.png</file>
+        <file>textures/tempsforest.png</file>
+        <file>textures/temprforest.png</file>
+        <file>textures/subdesert.png</file>
+        <file>textures/ocean.png</file>
+        <file>textures/mountain.png</file>
+        <file>textures/land.png</file>
+        <file>textures/hill.png</file>
+        <file>textures/colddesert.png</file>
+        <file>textures/coast.png</file>
+        <file>textures/borforest.png</file>
+        <file>textures/peak.png</file>
+        <file>textures/hill/temprforest-hill.png</file>
+        <file>textures/hill/woodland-hill.png</file>
+        <file>textures/hill/tundra-hill.png</file>
+        <file>textures/hill/tropsforest-hill.png</file>
+        <file>textures/hill/troprforest-hill.png</file>
+        <file>textures/hill/tempsforest-hill.png</file>
+        <file>textures/hill/subdesert-hill.png</file>
+        <file>textures/hill/colddesert-hill.png</file>
+        <file>textures/hill/borforest-hill.png</file>
     </qresource>
 </RCC>

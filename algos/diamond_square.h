@@ -12,24 +12,63 @@
 #include <cassert>
 
 namespace PTG {
-    namespace back {
+    namespace data {
         typedef std::vector<int> iVec;
-        
-        class DiamondSquare{
+       /**
+        * Algorithm for generating a std::vector matrix of procedural height map information.
+        * It is mainly a wrapper on the diamond square functions below, which is adapted from Martyn Afford.
+        * The returned matrix contains type double.
+        */
+        class DiamondSquare {
         private:
             std::size_t size;
             std::vector<iVec> map;
+            int sum_of_values;
             bool noWrapFlag;
         public:
+            /**
+             * @brief DiamondSquare constructs an empty, 1x1 map by default.
+             */
             DiamondSquare();
-            DiamondSquare(const std::size_t _size, bool _noWrapFlag = true);
-            void setMap(const std::size_t _size);
-            //void enableWrap();
 
+            /**
+             * @brief DiamondSquare constructs a map of a giving size and wrapping style.
+             * The map only has corner seed, and the algorithm itself is ran with the () operator.
+             *
+             * @param _size the size to generate the heightmap with.
+             * @param _noWrapFlag flag if this noise map should wrap: it is true by default.
+             */
+            DiamondSquare(const std::size_t _size, bool _noWrapFlag = true);
+
+            /**
+             * @brief setMap sets the size of map to generate.
+             * @param _size the size of map to generate.
+             */
+            void setMap(const std::size_t _size);
+
+            /**
+             * @brief operator () randomizes the values of this heightmap.
+             */
             void operator()();
-            
+
+            /**
+             * @brief getAverageValue gets the average height value from this DiamondSquare algorithm.
+             * @return the average value.
+             */
+            int getAverageValue() const;
+
+            /**
+             * @brief getMap gets the vector of vectors representing a heightmap.
+             * @return
+             */
             const std::vector<iVec>& getMap();
 
+            /**
+             * @brief operator << outputs terrain information to the console.
+             * @param out the output stream to use.
+             * @param that the DiamondSquare object to output to the console.
+             * @return
+             */
             friend std::ostream& operator<<(std::ostream& out, const DiamondSquare& that);
         };
         
@@ -82,11 +121,11 @@ namespace heightfield {
 /// allocations internally, relying on the user to provide the data structure
 /// and accessing it via `at`.
 template <typename T, typename T2, typename T3>
-void
+int 
 diamond_square_no_wrap(int size, T&& random, T2&& variance, T3&& at)
 {
     //assert(size >= 5 && ((size - 1) & (size - 2)) == 0 && "valid size");
-
+    int sum_of_values = 0;
     int level = 0;
     int stride = size - 1;
     int end = size - 1;
@@ -107,6 +146,7 @@ diamond_square_no_wrap(int size, T&& random, T2&& variance, T3&& at)
                 auto displacement = random(range * 2) - range;
 
                 at(x + half, y + half) = average + displacement;
+                sum_of_values += at(x + half, y + half);
             }
         }
 
@@ -121,6 +161,7 @@ diamond_square_no_wrap(int size, T&& random, T2&& variance, T3&& at)
             auto displacement = random(range * 2) - range;
 
             at(x, 0) = average + displacement;
+            sum_of_values += at(x,0);
         }
 
         // bottom
@@ -133,6 +174,7 @@ diamond_square_no_wrap(int size, T&& random, T2&& variance, T3&& at)
             auto displacement = random(range * 2) - range;
 
             at(x, end) = average + displacement;
+            sum_of_values += at(x,end);
         }
 
         // left
@@ -145,6 +187,7 @@ diamond_square_no_wrap(int size, T&& random, T2&& variance, T3&& at)
             auto displacement = random(range * 2) - range;
 
             at(0, y) = average + displacement;
+            sum_of_values += at(0,y);
         }
 
         // right
@@ -157,6 +200,7 @@ diamond_square_no_wrap(int size, T&& random, T2&& variance, T3&& at)
             auto displacement = random(range * 2) - range;
 
             at(end, y) = average + displacement;
+            sum_of_values += at(end,y);
         }
 
         // centre
@@ -173,6 +217,7 @@ diamond_square_no_wrap(int size, T&& random, T2&& variance, T3&& at)
                 auto displacement = random(range * 2) - range;
 
                 at(x, y) = average + displacement;
+                sum_of_values += at(x,y);
             }
 
             offset = !offset;
@@ -181,6 +226,7 @@ diamond_square_no_wrap(int size, T&& random, T2&& variance, T3&& at)
         stride /= 2;
         ++level;
     }
+    return sum_of_values;
 }
 
 /// Generate a tileable heightfield using random midpoint displacement and the
@@ -225,7 +271,7 @@ diamond_square_no_wrap(int size, T&& random, T2&& variance, T3&& at)
 /// allocations internally, relying on the user to provide the data structure
 /// and accessing it via `at`.
 template <typename T, typename T2, typename T3>
-void
+int
 diamond_square_wrap(int size, T&& random, T2&& variance, T3&& at)
 {
     //assert(size >= 4 && (size & (size - 1)) == 0 && "valid size");
@@ -333,8 +379,8 @@ diamond_square_wrap(int size, T&& random, T2&& variance, T3&& at)
         stride /= 2;
         ++level;
     }
+    return 100;
 }
-
 } // heightfield namespace
 
 #endif /* DIAMOND_SQUARE_HPP */

@@ -4,7 +4,8 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui \
+            multimedia
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -25,23 +26,35 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+    algos/perlinnoise.cpp \
     main.cpp \
     mainwindow.cpp \
     algos/diamond_square.cpp \
     pages/aboutpage.cpp \
-    pages/firstpage.cpp \
-    pages/lastpage.cpp \
+    pages/generationpage.cpp \
+    pages/instructionpage.cpp \
     pages/page.cpp \
-    pages/secondpage.cpp
+    pages/terrainpage.cpp \
+    pages/welcomepage.cpp \
+    view/ptgbutton.cpp \
+    view/terraintools.cpp \
+    view/terrainview.cpp
 
 HEADERS += \
+    algos/biome.h \
+    algos/perlinnoise.h \
+    algos/terrain_data.h \
     mainwindow.h \
     algos/diamond_square.h \
     pages/aboutpage.h \
-    pages/firstpage.h \
-    pages/lastpage.h \
+    pages/generationpage.h \
+    pages/instructionpage.h \
     pages/page.h \
-    pages/secondpage.h
+    pages/terrainpage.h \
+    pages/welcomepage.h \
+    view/ptgbutton.h \
+    view/terraintools.h \
+    view/terrainview.h
 
 FORMS +=
 
@@ -51,13 +64,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 DISTFILES += \
-    classhierarchydiagram.qmodel \
-    page1.jpeg \
-    page2.jpeg \
-    page3.jpeg \
-    back.png \
-    terrain.png \
-    font/monogram.ttf
+    classhierarchydiagram.qmodel
 
 RESOURCES += \
     pictures.qrc

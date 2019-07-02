@@ -3,11 +3,13 @@
 
 #include <QWidget>
 #include <QStackedWidget>
-#include "pages/firstpage.h"
-//#include "pages/secondpage.h"
-//#include "pages/lastpage.h"
-//#include "pages/aboutpage.h"
-//#include <QComboBox>
+#include "pages/welcomepage.h"
+#include "pages/generationpage.h"
+#include "pages/terrainpage.h"
+#include "pages/aboutpage.h"
+#include "pages/instructionpage.h"
+#include <QComboBox>
+#include <QMediaPlayer>
 namespace PTG {
     namespace view {
         class MainWindow : public QWidget
@@ -30,14 +32,15 @@ namespace PTG {
             ~MainWindow();
 
         private:
-//            QStackedWidget * pages = nullptr;
-
+            QMediaPlayer * player = new QMediaPlayer();
+            QStackedWidget * pages = nullptr;
             QVBoxLayout * main_layout = nullptr;
-            Page * firstPageWidget = nullptr;
-//            Page * secondPageWidget = nullptr;
-//            Page * lastPageWidget = nullptr;
-//            Page * aboutPageWidget = nullptr;
-//            QComboBox * pageComboBox = nullptr;
+            Page * welcomePageWidget = nullptr;
+            Page * generationPageWidget = nullptr;
+            Page * lastPageWidget = nullptr;
+            Page * aboutPageWidget = nullptr;
+            Page * instructPageWidget = nullptr;
+            QComboBox * pageComboBox = nullptr;
 
 
             /**
@@ -73,7 +76,15 @@ namespace PTG {
             */
             void updateBackground(int page_number);
 
+            /**
+             * @brief initMedia initializes media for the applications media player.
+             */
+            void initMedia();
 
+            /**
+             * @brief stopMediaSounds stops media sounds from playing in the application.
+             */
+            void stopMediaSounds();
         };
     }
 }

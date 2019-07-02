@@ -1,12 +1,13 @@
 #include "page.h"
 #include <QDebug>
 #include <QFontDatabase>
+
 namespace PTG {
     namespace view {
         Page::Page(QWidget *parent) : QWidget(parent),
             layout(new QGridLayout)
         {
-            qDebug() << "Page()\n";
+            qDebug() << "Page()";
         }
 
         void Page::addPageWidget(QWidget *ptrw, int row, int col) {
