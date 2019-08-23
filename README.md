@@ -26,7 +26,8 @@ PROGRAM NOTES
 
 
 
-INSTRUCTIONS---------------------------------------------------
+INSTRUCTIONS
+---------------------------------------------------
 
 Installation: Using Qt Community Creator 5.12.2, the application can be built with either
 Desktop Qt 5.12.2 GCC 64-bit or MSV 2017 64-bit. The program will not run correctly otherwise.
