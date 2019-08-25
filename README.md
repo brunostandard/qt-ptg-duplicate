@@ -26,7 +26,8 @@ PROGRAM NOTES
 
 
 
-INSTRUCTIONS---------------------------------------------------
+INSTRUCTIONS
+---------------------------------------------------
 
 Installation: Using Qt Community Creator 5.12.2, the application can be built with either
 Desktop Qt 5.12.2 GCC 64-bit or MSV 2017 64-bit. The program will not run correctly otherwise.
@@ -42,9 +43,19 @@ are local path specific. Furthermore, the png files cannot be re-named for the s
 Suggestions: Run the application in full window for best user experience. 
 
 
+DESCRIPTION
+---------------------------------------------------
+This is a Procedual Terrain Generator (PTG) implemented with the Qt Framework. This was intended
+to be submitted for a programming class. 
+The following figures explains the program.
+![](instruction_image_page1.png)
+![](instruction_image_page2.png)
+
+The class hierarchy is described below. 
+![](figure_class_hierarchy_diagram.png)
 
 LICENSING AND ACKNOWLEDGEMENTS 
------------------------------------------------
+---------------------------------------------------
 
 This is project built for an educational purpose. 
 We do NOT condone plagaraism, but this program is free to use for other PERSONAL purposes.
