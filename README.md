@@ -6,11 +6,11 @@ Procedual Terrain Generator (version 1.0) 06/04/2019
 DEVELOPER TEAM
 ----------------------------------------------------------------
 
-Manuel Bruno Chavez
-	E-mail: mchavez0612@ucla.edu
+M.B.C.
+	E-mail: mchavez 0612 (at) ucla (dot) edu
 
-Timothy Andersen
-	E-mail: timandersen32@gmail.com
+T.A.
+	E-mail: timandersen 32 (at) gmail (dot) com
 
 
 
@@ -26,8 +26,7 @@ PROGRAM NOTES
 
 
 
-INSTRUCTIONS
----------------------------------------------------
+INSTRUCTIONS---------------------------------------------------
 
 Installation: Using Qt Community Creator 5.12.2, the application can be built with either
 Desktop Qt 5.12.2 GCC 64-bit or MSV 2017 64-bit. The program will not run correctly otherwise.
